@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RPGAPP</string>
+    <string name="nome">Nome</string>
+    <string name="classe">Classe</string>
+    <string name="limpar">Limpar</string>
+    <string name="salvar">Salvar</string>
+    <string name="as_entradas_foram_apagadas">As entradas foram apagadas!</string>
+    <string name="o_campo_nome_esta_vazio">O campo nome está vazio!</string>
+    <string name="o_campo_classe_esta_vazio">O campo classe está vazio!</string>
+    <string name="nome_valor">"Nome: "</string>
+    <string name="classe_valor">"Classe: "</string>
+</resources>
