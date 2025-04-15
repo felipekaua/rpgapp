@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/app_name"
+        android:text="@string/criador_de_personagem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +30,7 @@
     <EditText
         android:id="@+id/editTextNome"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -53,7 +53,7 @@
     <EditText
         android:id="@+id/editTextClasse"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -64,17 +64,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/buttonSalvar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:onClick="salvarCampos"
-        android:text="@string/salvar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonLimpar"
-        app:layout_constraintTop_toBottomOf="@+id/editTextClasse" />
-
-    <Button
         android:id="@+id/buttonLimpar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -83,6 +72,89 @@
         android:text="@string/limpar"
         app:layout_constraintEnd_toStartOf="@+id/buttonSalvar"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerRaca" />
+
+    <Button
+        android:id="@+id/buttonSalvar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="salvarCampos"
+        android:text="@string/salvar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonLimpar"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerRaca" />
+
+    <CheckBox
+        android:id="@+id/checkBoxNpc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/jogador"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextClasse" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupAlinhamento"
+        android:layout_width="221dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <RadioButton
+            android:id="@+id/radioButtonMau"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mau" />
+
+        <RadioButton
+            android:id="@+id/radioButtonNeutro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/neutro" />
+
+        <RadioButton
+            android:id="@+id/radioButtonBom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bom" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/alinhamento"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxNpc" />
+
+    <Spinner
+        android:id="@+id/spinnerRaca"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:entries="@array/raca_array"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRaça" />
+
+    <TextView
+        android:id="@+id/textViewRaça"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/raca"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupAlinhamento" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

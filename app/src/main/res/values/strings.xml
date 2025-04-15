@@ -9,4 +9,20 @@
     <string name="o_campo_classe_esta_vazio">O campo classe está vazio!</string>
     <string name="nome_valor">"Nome: "</string>
     <string name="classe_valor">"Classe: "</string>
+    <string name="jogador">NPC (Personagem que não é jogador)</string>
+    <string name="npc">É NPC</string>
+    <string name="nao_npc">Não é NPC</string>
+    <string name="mau">Mau</string>
+    <string name="neutro">Neutro</string>
+    <string name="bom">Bom</string>
+    <string name="alinhamento">Alinhamento</string>
+    <string name="criador_de_personagem">Criador de Personagem</string>
+    <string name="selecao">A seleção do alinhamento é obrigatória</string>
+    <string name="alinhamento_valor">"Alinhamento: "</string>
+    <string name="raca">Raça"</string>
+    <string name="humano">Humano</string>
+    <string name="anao">Anão</string>
+    <string name="elfo">Elfo</string>
+    <string name="spinner">O spinner não está populado</string>
+    <string name="raca_valor">"Raça: "</string>
 </resources>
