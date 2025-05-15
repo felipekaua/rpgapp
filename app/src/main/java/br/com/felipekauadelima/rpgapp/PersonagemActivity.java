@@ -1,21 +1,38 @@
 package br.com.felipekauadelima.rpgapp;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PersonagemActivity extends AppCompatActivity {
 
+    public static final String KEY_NOME = "KEY_NOME";
+    public static final String KEY_CLASSE = "KEY_CLASSE";
+    public static final String KEY_NPC = "KEY_NPC";
+    public static final String KEY_RACA = "KEY_RACA";
+    public static final String KEY_ALINHAMENTO = "KEY_ALINHAMENTO";
+    public static final String KEY_MODO = "MODO";
+    public static final int MODO_NOVO = 0;
+    public static final int MODO_EDITAR = 1;
     private EditText editTextNome, editTextClasse;
     private CheckBox checkBoxNpc;
     private RadioGroup radioGroupAlinhamento;
+    private RadioButton radioButtonBom;
+    private RadioButton radioButtonNeutro;
+    private RadioButton radioButtonMau;
     private Spinner spinnerRaca;
+    private int modo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,20 +44,49 @@ public class PersonagemActivity extends AppCompatActivity {
         checkBoxNpc = findViewById(R.id.checkBoxNpc);
         radioGroupAlinhamento = findViewById(R.id.radioGroupAlinhamento);
         spinnerRaca = findViewById(R.id.spinnerRaca);
+        radioButtonBom = findViewById(R.id.radioButtonBom);
+        radioButtonNeutro = findViewById(R.id.radioButtonNeutro);
+        radioButtonMau = findViewById(R.id.radioButtonMau);
 
-//        popularSpinner();
+        Intent intentAbertura = getIntent();
+        Bundle bundle = intentAbertura.getExtras();
+
+        if(bundle!=null){
+            modo = bundle.getInt(KEY_MODO);
+
+            if(modo == MODO_NOVO){
+                setTitle(getString(R.string.novo_personagem));
+
+            }else{
+                setTitle(getString(R.string.editar_pessoa));
+
+                String nome = bundle.getString(PersonagemActivity.KEY_NOME);
+                String classe = bundle.getString(PersonagemActivity.KEY_CLASSE);
+                Boolean npc = bundle.getBoolean(PersonagemActivity.KEY_NPC);
+                String alinhamentoTexto = bundle.getString(PersonagemActivity.KEY_ALINHAMENTO);
+                int raca = bundle.getInt(PersonagemActivity.KEY_RACA);
+
+                Alinhamento alinhamento = Alinhamento.valueOf(alinhamentoTexto);
+
+                editTextNome.setText(nome);
+                editTextClasse.setText(classe);
+                checkBoxNpc.setChecked(npc);
+                spinnerRaca.setSelection(raca);
+
+                if(alinhamento == Alinhamento.Bom){
+                    radioButtonBom.setChecked(true);
+                }else if(alinhamento == Alinhamento.Neutro){
+                    radioButtonNeutro.setChecked(true);
+                }else if(alinhamento == Alinhamento.Mau){
+                    radioButtonMau.setChecked(true);
+                }
+
+            }
+        }
+
     }
 
-//    private void popularSpinner(){
-//        ArrayList<String> lista = new ArrayList<>();
-//        lista.add(getString(R.string.humano));
-//        lista.add(getString(R.string.anao));
-//        lista.add(getString(R.string.elfo));
-//        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, lista);
-//        spinnerRaca.setAdapter(adapter);
-//    }
-
-    public void limparCampos(View view){
+    public void limparCampos(){
         editTextNome.setText(null);
         editTextClasse.setText(null);
         checkBoxNpc.setChecked(false);
@@ -50,7 +96,7 @@ public class PersonagemActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.as_entradas_foram_apagadas, Toast.LENGTH_SHORT).show();
     }
 
-    public void salvarCampos(View view){
+    public void salvarCampos(){
         String nome = editTextNome.getText().toString();
 
         if(nome == null || nome.trim().isEmpty()){
@@ -75,33 +121,60 @@ public class PersonagemActivity extends AppCompatActivity {
 
         int radioButtonId = radioGroupAlinhamento.getCheckedRadioButtonId();
 
-        String alinhamento;
+        Alinhamento alinhamento;
 
         if(radioButtonId == R.id.radioButtonBom){
-            alinhamento = getString(R.string.bom);
+            alinhamento = Alinhamento.Bom;
         }else if(radioButtonId == R.id.radioButtonMau) {
-            alinhamento = getString(R.string.mau);
+            alinhamento = Alinhamento.Mau;
         }else if(radioButtonId == R.id.radioButtonNeutro){
-            alinhamento = getString(R.string.neutro);
+            alinhamento = Alinhamento.Neutro;
         }else{
             Toast.makeText(this, R.string.selecao, Toast.LENGTH_SHORT).show();
             radioGroupAlinhamento.requestFocus();
             return;
         }
 
-        String raca = (String) spinnerRaca.getSelectedItem();
+        int raca = spinnerRaca.getSelectedItemPosition();
 
-        if(raca == null){
+        if(raca == AdapterView.INVALID_POSITION){
             Toast.makeText(this, R.string.spinner, Toast.LENGTH_LONG).show();
             return;
         }
 
-        Toast.makeText(this, getString(R.string.nome_valor)+nome+"\n"+
-                                         getString(R.string.classe_valor)+classe+"\n"+
-                                         (npc ? getString(R.string.npc) : getString(R.string.nao_npc))+"\n"+
-                                         getString(R.string.alinhamento_valor)+alinhamento+"\n"+
-                                         getString(R.string.raca_valor)+raca,
-                                         Toast.LENGTH_LONG).show();
+        Intent intentResposta = new Intent();
+        intentResposta.putExtra(KEY_NOME, nome);
+        intentResposta.putExtra(KEY_CLASSE, classe);
+        intentResposta.putExtra(KEY_NPC, npc);
+        intentResposta.putExtra(KEY_RACA, raca);
+        intentResposta.putExtra(KEY_ALINHAMENTO, alinhamento.toString());
 
+        setResult(PersonagemActivity.RESULT_OK, intentResposta);
+
+        finish();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.personagem_opcoes, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int idMenuItem = item.getItemId();
+
+        if(idMenuItem==R.id.menuItemSalvar){
+            salvarCampos();
+            return true;
+        }else{
+            if (idMenuItem==R.id.menuItemLimpar){
+                limparCampos();
+                return true;
+            }else{
+                return super.onOptionsItemSelected(item);
+            }
+        }
     }
 }

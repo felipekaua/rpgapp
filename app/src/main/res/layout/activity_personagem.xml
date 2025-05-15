@@ -63,28 +63,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <Button
-        android:id="@+id/buttonLimpar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:onClick="limparCampos"
-        android:text="@string/limpar"
-        app:layout_constraintEnd_toStartOf="@+id/buttonSalvar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerRaca" />
-
-    <Button
-        android:id="@+id/buttonSalvar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:onClick="salvarCampos"
-        android:text="@string/salvar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonLimpar"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerRaca" />
-
     <CheckBox
         android:id="@+id/checkBoxNpc"
         android:layout_width="wrap_content"

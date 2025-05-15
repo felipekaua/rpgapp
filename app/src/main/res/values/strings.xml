@@ -25,4 +25,27 @@
     <string name="elfo">Elfo</string>
     <string name="spinner">O spinner não está populado</string>
     <string name="raca_valor">"Raça: "</string>
+    <string name="paladino">Paladino</string>
+    <string name="barbaro">Bárbaro</string>
+    <string name="mago">Mago</string>
+    <string name="feiticeiro">Feiticeiro</string>
+    <string name="ladrao">Ladrão</string>
+    <string name="monge">Monge</string>
+    <string name="lutador">Lutador</string>
+    <string name="alquimista">Alquimista</string>
+    <string name="personagem_de_nome">Personagem de nome \"</string>
+    <string name="foi_clicado">\"\nfoi clicado</string>
+    <string name="logo_rpgapp">Logo RPGAPP</string>
+    <string name="autor">Autor: Felipe Kauã de Lima</string>
+    <string name="curso">Curso: Engenharia de Computação</string>
+    <string name="email">Email: fkauadelima@gmail.com</string>
+    <string name="descricao">Controle de Enredos para RPG</string>
+    <string name="sobre">Sobre</string>
+    <string name="listagem_de_personagens">Listagem de Personagens</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="novo_personagem">Novo Personagem</string>
+    <string name="editar">Editar\n</string>
+    <string name="excluir">Excluir</string>
+    <string name="editar_pessoa">Editar Pessoa</string>
+    <string name="sugerir_tipo">Sugerir Tipo</string>
 </resources>

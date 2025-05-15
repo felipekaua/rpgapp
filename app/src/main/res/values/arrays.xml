@@ -7,5 +7,69 @@
         <item>@string/elfo</item>
     </string-array>
 
-    
+    <string-array name="personagens_nome">
+        <item>Grok</item>
+        <item>Brok</item>
+        <item>Trok</item>
+        <item>Drok</item>
+        <item>Krok</item>
+        <item>Orok</item>
+        <item>Treg</item>
+        <item>Breg</item>
+        <item>Kreg</item>
+        <item>Dreg</item>
+    </string-array>
+
+    <string-array name="personagens_classe">
+        <item>@string/paladino</item>
+        <item>@string/barbaro</item>
+        <item>@string/mago</item>
+        <item>@string/feiticeiro</item>
+        <item>@string/ladrao</item>
+        <item>@string/monge</item>
+        <item>@string/lutador</item>
+        <item>@string/alquimista</item>
+        <item>@string/paladino</item>
+        <item>@string/mago</item>
+    </string-array>
+
+    <integer-array name="personagens_npc">
+        <item>0</item>
+        <item>1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>0</item>
+        <item>1</item>
+    </integer-array>
+
+    <integer-array name="personagens_raca">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>1</item>
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+        <item>2</item>
+        <item>0</item>
+        <item>1</item>
+    </integer-array>
+
+    <integer-array name="personagens_alinhamento">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>1</item>
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+        <item>2</item>
+        <item>0</item>
+        <item>1</item>
+    </integer-array>
+
 </resources>
